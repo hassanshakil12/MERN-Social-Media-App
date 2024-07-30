@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 import userRouter from "./routes/user.route.js";
+import postRouter from "./routes/post.route.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 
@@ -17,6 +18,7 @@ app.use(cors({ origin: true, credentials: true }));
 
 // Routers
 app.use("/api/user", userRouter);
+app.use("/api/post", postRouter);
 
 app.get("*", (req, res) => {
   res.status(404).json({ Message: "Page not found" });

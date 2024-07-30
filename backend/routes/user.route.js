@@ -140,10 +140,10 @@ router.get("/:id", authenticateToken, async (req, res) => {
 
 router.get("/explore", authenticateToken, async (req, res) => {
   try {
-    const users = await User.find(_id);
-    if (users.length === 0) {
-      return res.status(404).json({ Message: "No user found" });
-    }
+    const users = await User.find({ _id: req.user._id });
+    // if (users.length === 0) {
+    //   return res.status(404).json({ Message: "No user found" });
+    // }
 
     res.status(200).json(users);
   } catch (error) {
