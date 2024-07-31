@@ -6,6 +6,20 @@ import authenticateToken from "../middlewares/auth.js";
 
 const router = express.Router();
 
+router.get("/", authenticateToken, async (req, res) => {
+  try {
+    const users = await User.find({ _id: { $ne: req.user._id } });
+    if (!users) {
+      return res.status(404).json({ Message: "No user found" });
+    }
+
+    res.status(200).json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ Message: "Server not responding" });
+  }
+});
+
 router.post("/register", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -132,20 +146,6 @@ router.get("/:id", authenticateToken, async (req, res) => {
       return res.status(404).json({ Message: "User not found" });
     }
     res.status(200).json(user);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ Message: "Server not responding" });
-  }
-});
-
-router.get("/explore", authenticateToken, async (req, res) => {
-  try {
-    const users = await User.find({ _id: req.user._id });
-    // if (users.length === 0) {
-    //   return res.status(404).json({ Message: "No user found" });
-    // }
-
-    res.status(200).json(users);
   } catch (error) {
     console.error(error);
     res.status(500).json({ Message: "Server not responding" });
