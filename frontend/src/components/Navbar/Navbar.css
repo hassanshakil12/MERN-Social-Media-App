@@ -1,0 +1,25 @@
+.navbar-container{
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(25, 25, 25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5vw;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+.navbar-center{
+    width: fit-content;
+    gap: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
