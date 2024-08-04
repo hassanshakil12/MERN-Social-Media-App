@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./Register.css"
+import "./Register.css";
+import { register } from "../../services/Api.jsx";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,12 @@ const Register = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await register(formData);
+      alert("User registered Successfully");
+    } catch (error) {
+      console.error(`err: ${err}`);
+    }
   };
 
   return (
