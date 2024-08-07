@@ -11,3 +11,6 @@ const getAuthHeader = () => {
 
 export const register = (userData) => API.post("/user/register", userData);
 export const login = (userData) => API.post("/user/login", userData);
+
+export const fetchAllUsers = () =>
+  API.get("/user", { headers: getAuthHeader() });
