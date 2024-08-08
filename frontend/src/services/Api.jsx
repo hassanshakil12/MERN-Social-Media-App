@@ -14,3 +14,12 @@ export const login = (userData) => API.post("/user/login", userData);
 
 export const fetchAllUsers = () =>
   API.get("/user", { headers: getAuthHeader() });
+
+export const followUser = (userId) =>
+  API.post(`/user/follow/${userId}`, {}, { headers: getAuthHeader() });
+
+export const unFollowUser = (userId) =>
+  API.post(`/user/unfollow/${userId}`, {}, { headers: getAuthHeader() });
+
+export const currentUserProfile = () =>
+  API.get("/user/profile", { headers: getAuthHeader() });
