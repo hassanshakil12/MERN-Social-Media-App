@@ -4,7 +4,7 @@ import UserCard from "./UserCard.jsx";
 
 const Explore = () => {
   const [users, setUsers] = useState([]);
-  const [currentUser, setcurrentUser] = useState({});
+  const [currentUser, setcurrentUser] = useState([]);
 
   useEffect(() => {
     try {
