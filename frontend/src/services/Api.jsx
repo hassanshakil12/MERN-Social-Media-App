@@ -9,6 +9,8 @@ const getAuthHeader = () => {
     : alert("token not found");
 };
 
+// User Routes ----------------------------------------------------------------------------
+
 export const register = (userData) => API.post("/user/register", userData);
 export const login = (userData) => API.post("/user/login", userData);
 
@@ -23,3 +25,10 @@ export const unFollowUser = (userId) =>
 
 export const currentUserProfile = () =>
   API.get("/user/profile", { headers: getAuthHeader() });
+
+// Post Routes ----------------------------------------------------------------------------
+
+export const fetchPost = () => API.get("/post", { headers: getAuthHeader() });
+
+export const createPost = (postData) =>
+  API.post("/post/create", postData, { headers: getAuthHeader() });
