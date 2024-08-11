@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./Login.css";
 import { login } from "../../services/Api";
 
 const Login = () => {
@@ -32,8 +32,8 @@ const Login = () => {
   };
 
   return (
-    <div className="register-container">
-      <form onSubmit={handleOnSubmit} method="post">
+    <div className="login-container">
+      <form onSubmit={handleOnSubmit} method="post" className="login-form">
         <div className="form-control">
           <h3>E-mail</h3>
           <input

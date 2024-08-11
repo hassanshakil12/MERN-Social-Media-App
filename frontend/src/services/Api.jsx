@@ -32,3 +32,8 @@ export const fetchPost = () => API.get("/post", { headers: getAuthHeader() });
 
 export const createPost = (postData) =>
   API.post("/post/create", postData, { headers: getAuthHeader() });
+
+export const createComment = (posttId, postComment) =>
+  API.post(`/post/comment/${posttId}`, postComment, {
+    headers: getAuthHeader(),
+  });
