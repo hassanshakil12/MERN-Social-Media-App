@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { createComment } from "../../services/Api.jsx";
 import LikeBtn from "./LikeBtn.jsx";
+import PostContent from "./PostContent.jsx";
 
 const PostCard = ({ post, currentUser }) => {
   const [comments, setComments] = useState(post.comment || []);
@@ -29,18 +30,7 @@ const PostCard = ({ post, currentUser }) => {
       <h3>{post.user.username}</h3>
 
       {/* Rendering post content */}
-      {post.content.map((item, idx) => (
-        <div key={idx}>
-          {item.image && (
-            <img
-              src={`http://localhost:5000/uploads/postImages/${item.image}`}
-              alt="Post Img"
-              style={{ maxWidth: "25%", height: "auto" }}
-            />
-          )}
-          {item.caption && <p>{item.caption}</p>}
-        </div>
-      ))}
+      <PostContent content={post.content}/>
 
       {/* Comment Logic */}
       <form onSubmit={handleOnClick}>
