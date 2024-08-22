@@ -27,19 +27,20 @@ const PostCard = ({ post, currentUser }) => {
   return (
     <div>
       <h3>{post.user.username}</h3>
-      {post.content.map((item) => {
-        <div key={item._id}>
-          {console.log(item.image)}
+
+      {/* Rendering post content */}
+      {post.content.map((item, idx) => (
+        <div key={idx}>
           {item.image && (
             <img
-              src={`http://localhost:5000/uploads/postImage/${item.image}`}
-              alt="Post"
-              style={{ maxWidth: "100%", height: "auto" }}
+              src={`http://localhost:5000/uploads/postImages/${item.image}`}
+              alt="Post Img"
+              style={{ maxWidth: "25%", height: "auto" }}
             />
           )}
           {item.caption && <p>{item.caption}</p>}
-        </div>;
-      })}
+        </div>
+      ))}
 
       {/* Comment Logic */}
       <form onSubmit={handleOnClick}>
