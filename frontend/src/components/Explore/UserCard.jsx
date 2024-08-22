@@ -4,7 +4,7 @@ import FollowBtn from "./FollowBtn.jsx";
 
 const UserCard = ({ user, currentUser }) => {
   const [followers, setFollowers] = useState(user.followers);
-  const [isFollowing, setIsFollowing] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(null);
 
   useEffect(() => {
     if (followers.includes(currentUser._id)) {
@@ -49,7 +49,6 @@ const UserCard = ({ user, currentUser }) => {
         <p>Following {user.following.length}</p>
         <FollowBtn
           handleOnClick={handleOnClick}
-          currentUser={currentUser}
           isFollowing={isFollowing}
           user={user}
         />

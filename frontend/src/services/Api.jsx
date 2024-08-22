@@ -30,6 +30,9 @@ export const currentUserProfile = () =>
 
 export const fetchPost = () => API.get("/post", { headers: getAuthHeader() });
 
+export const fetchPostById = (postId) =>
+  API.get(`/post/${postId}`, { headers: getAuthHeader() });
+
 export const createPost = (postData) =>
   API.post("/post/create", postData, { headers: getAuthHeader() });
 
@@ -37,3 +40,9 @@ export const createComment = (posttId, postComment) =>
   API.post(`/post/comment/${posttId}`, postComment, {
     headers: getAuthHeader(),
   });
+
+export const likePost = (postId) =>
+  API.post(`/post/like/${postId}`, {}, { headers: getAuthHeader() });
+
+export const unlikePost = (postId) =>
+  API.post(`/post/unlike/${postId}`, {}, { headers: getAuthHeader() });

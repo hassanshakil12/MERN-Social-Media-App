@@ -5,6 +5,7 @@ import userRouter from "./routes/user.route.js";
 import postRouter from "./routes/post.route.js";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { UPLOAD_DIR } from "./utils/staticFilePath.js";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -12,6 +13,7 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 // Middlewares
+app.use("/uploads/postImages", express.static(UPLOAD_DIR));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors({ origin: true, credentials: true }));

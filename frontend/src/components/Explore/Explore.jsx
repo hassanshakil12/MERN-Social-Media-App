@@ -4,13 +4,13 @@ import UserCard from "./UserCard.jsx";
 
 const Explore = () => {
   const [users, setUsers] = useState([]);
-  const [currentUser, setcurrentUser] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
 
   useEffect(() => {
     try {
       const fetchCurrentUser = async () => {
         const response = await currentUserProfile();
-        setcurrentUser(response.data);
+        setCurrentUser(response.data);
       };
       const fetchUsers = async () => {
         const response = await fetchAllUsers();
@@ -22,7 +22,9 @@ const Explore = () => {
       console.error(error);
     }
   }, []);
-  // console.log(users);
+
+  console.log(users);
+  
   return (
     <>
       {users.map((user) => (

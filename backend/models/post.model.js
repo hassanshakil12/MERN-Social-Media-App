@@ -8,10 +8,16 @@ const postSchema = new Schema(
       ref: "User",
       required: true,
     },
-    content: {
-      type: String,
-      required: true,
-    },
+    content: [
+      {
+        image: {
+          type: String,
+        },
+        caption: {
+          type: String,
+        },
+      },
+    ],
     likes: [
       {
         type: Schema.Types.ObjectId,
