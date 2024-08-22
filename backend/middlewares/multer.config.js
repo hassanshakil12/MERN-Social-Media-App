@@ -12,4 +12,20 @@ const storage = multer.diskStorage({
   },
 });
 
-export const upload = multer({ storage });
+// Ensure that only image files are uploaded as a post
+const fileFilter = (req, file, cb) => {
+  const allowedMimeTypes = [
+    "image/jpeg",
+    "image/png",
+    "image.jpg",
+    "image/gif",
+  ];
+
+  if (allowedMimeTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error("Only image files are allowed"), false);
+  }
+};
+
+export const upload = multer({ storage, fileFilter });

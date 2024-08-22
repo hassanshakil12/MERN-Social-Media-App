@@ -47,10 +47,7 @@ router.post(
   async (req, res) => {
     try {
       const imageFile = req.file;
-      console.log(imageFile);
-
       const { caption } = req.body;
-
       const content = [];
 
       if (!imageFile && !caption)

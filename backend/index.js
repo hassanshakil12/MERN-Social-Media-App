@@ -16,7 +16,15 @@ dotenv.config();
 app.use("/uploads/postImages", express.static(UPLOAD_DIR));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors({ origin: true, credentials: true }));
+
+// CORS Middleware
+app.use(
+  cors({
+    origin: `http://localhost:5173`,
+    methods: "GET, POS, PUT, DELETE",
+    credentials: true,
+  })
+);
 
 // Routers
 app.use("/api/user", userRouter);
