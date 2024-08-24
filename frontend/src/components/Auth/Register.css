@@ -1,43 +1,89 @@
 .register-container {
     width: 100%;
     height: calc(100vh - 8vh);
-    background-color: rgb(223, 223, 223);
+    background-color: #191919;
+    color: #bebebe;
 }
 
-.registeration-form {
-    background-color: rgb(150, 150, 150);
+.register-form {
+    background: linear-gradient(180deg, rgb(14, 14, 14) 80%, rgb(20, 20, 20) 100%);
+    width: 700px;
+    height: fit-content;
+    padding: 15px 30px;
     position: absolute;
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30vw;
-    height: 50vh;
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     gap: 20px;
 }
 
-.form-control {
-    /* background-color: greenyellow; */
-    width: 75%;
-}
-
-.form-control h3 {
-    font-weight: 400;
-    font-size: 25px;
-}
-
-.form-control input {
+.register-form-heading h1 {
     width: 100%;
-    border: none;
-    outline: none;
-    background-color: white;
-    border-radius: 5px;
-    height: 40px;
-    padding: 20px;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.register-form .register-form-control {
+    width: 100%;
+}
+
+.register-form-control h3 {
     font-size: 20px;
+    font-weight: 400;
+}
+
+.register-form-control input {
+    width: 100%;
+    padding: 8px 20px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid #757575;
+    border-radius: 15px;
+    transition: all ease 0.3s;
+    background-color: transparent;
+    color: rgb(220, 220, 220);
+    margin-top: 10px;
+}
+
+.register-form-control input:hover {
+    background-color: rgb(45, 45, 45);
+    border: 1px solid rgb(45, 45, 45);
+}
+
+.register-form-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register-form-button button {
+    float: right;
+    width: 25%;
+    padding: 8px 12px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid rgb(47, 188, 253);
+    color: rgb(47, 188, 253);
+    background-color: transparent;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.register-form-button button:hover {
+    color: rgb(47, 188, 253);
+    border: 1px solid rgba(47, 188, 253, 0.274);
+    background-color: rgba(47, 188, 253, 0.274);
+}
+
+.register-form-button a {
+    color: #20d172;
+    font-size: 20px;
+    border-bottom: 1px solid #20d172;
 }

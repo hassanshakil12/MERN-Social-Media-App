@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Register.css";
 import { register } from "../../services/Api.jsx";
 
@@ -30,9 +31,12 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <form onSubmit={handleOnSubmit} method="post" className="registeration-form">
-        <div className="form-control">
-          <h3>Username</h3>
+      <form onSubmit={handleOnSubmit} method="post" className="register-form">
+        <div className="register-form-heading">
+          <h1>Signup.</h1>
+        </div>
+        <div className="register-form-control">
+          <h3>Username:</h3>
           <input
             type="text"
             placeholder="Enter username"
@@ -41,8 +45,8 @@ const Register = () => {
           />
         </div>
 
-        <div className="form-control">
-          <h3>E-mail</h3>
+        <div className="register-form-control">
+          <h3>E-mail:</h3>
           <input
             type="email"
             placeholder="Enter email"
@@ -51,8 +55,8 @@ const Register = () => {
           />
         </div>
 
-        <div className="form-control">
-          <h3>Password</h3>
+        <div className="register-form-control">
+          <h3>Password:</h3>
           <input
             type="password"
             placeholder="Enter password"
@@ -60,7 +64,10 @@ const Register = () => {
             onChange={handleOnChange}
           />
         </div>
-        <button type="submit">Register</button>
+        <div className="register-form-button">
+          <Link to={"/login"}>Log in</Link>
+          <button type="submit">Register</button>
+        </div>
       </form>
     </div>
   );

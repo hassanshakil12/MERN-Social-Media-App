@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Login.css";
 import { login } from "../../services/Api";
 
@@ -34,8 +35,11 @@ const Login = () => {
   return (
     <div className="login-container">
       <form onSubmit={handleOnSubmit} method="post" className="login-form">
-        <div className="form-control">
-          <h3>E-mail</h3>
+        <div className="login-form-heading">
+          <h1>Login.</h1>
+        </div>
+        <div className="login-form-control">
+          <h3>E-mail:</h3>
           <input
             type="email"
             placeholder="Enter email"
@@ -44,8 +48,8 @@ const Login = () => {
           />
         </div>
 
-        <div className="form-control">
-          <h3>Password</h3>
+        <div className="login-form-control">
+          <h3>Password:</h3>
           <input
             type="password"
             placeholder="Enter password"
@@ -53,7 +57,10 @@ const Login = () => {
             onChange={handleOnChange}
           />
         </div>
-        <button type="submit">Login</button>
+        <div className="login-form-button">
+          <Link to={"/register"}>Create Account</Link>
+          <button type="submit">Login</button>
+        </div>
       </form>
     </div>
   );

@@ -35,10 +35,8 @@ const Feed = () => {
 
   if (loading)
     return (
-      <div
-        style={{ backgroundColor: "black", color: "white", fontSize: "50px" }}
-      >
-        loading
+      <div className="feed-spinner-container">
+        <div className="feed-spinner"></div>
       </div>
     );
 
