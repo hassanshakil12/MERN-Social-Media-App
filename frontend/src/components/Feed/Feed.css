@@ -14,13 +14,11 @@
 /* Post Card CSS */
 
 .postCard-container {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(180deg, rgb(14, 14, 14) 80%, rgb(24, 24, 24) 100%);
+    background: linear-gradient(180deg, rgb(14, 14, 14) 80%, rgb(20, 20, 20) 100%);
     height: fit-content;
     width: 700px;
     padding: 15px 30px;
     border-radius: 15px;
-    /* backdrop-filter: drop-shadow(2px 4px 6px black); */
     position: relative;
 }
 
@@ -52,7 +50,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;
+    background-color: #000;
 }
 
 .postContent-Image img {

@@ -1,21 +1,41 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { createPost } from "../../services/Api";
 import "./CreatePost.css";
 
 const CreatePost = () => {
   const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [imageName, setImageName] = useState("");
   const captionRef = useRef("");
   const navigate = useNavigate();
 
   const handleOnChange = (e) => {
     try {
       if (e.target.type === "file") {
-        setImageFile(e.target.files[0]);
+        const file = e.target.files[0];
+        setImageFile(file);
+        setImagePreview(URL.createObjectURL(file));
+        setImageName(file.name);
       }
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleOnDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleOnDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const file = e.dataTransfer.files[0];
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
+    setImageName(file.name);
   };
 
   const handleOnSubmit = async (e) => {
@@ -50,10 +70,32 @@ const CreatePost = () => {
           method="post"
           onSubmit={handleOnSubmit}
           className="createPost-form"
+          onDragOver={handleOnDragOver}
+          onDrop={handleOnDrop}
         >
-          <div>
-            <input type="file" name="image" onChange={handleOnChange} />
+          <div
+            className="createPost-dropzone"
+            onDrop={handleOnDrop}
+            onDragOver={handleOnDragOver}
+          >
+            {imagePreview ? (
+              <img src={imagePreview} alt="preview" className="image-preview" />
+            ) : (
+              <div className="dropZone">
+                <p>Drag and drop an image here...</p>
+                <input
+                  type="file"
+                  name="image"
+                  title=" "
+                  onChange={handleOnChange}
+                />
+              </div>
+            )}
           </div>
+          <h3 className="createPost-fileName">
+            {" "}
+            File Name: {imageName || "No File Selected"}
+          </h3>
           <div>
             <textarea
               placeholder="What's on your mind"
@@ -63,6 +105,7 @@ const CreatePost = () => {
             ></textarea>
           </div>
           <div className="createPost-button-container">
+            <Link to={"/"}>Cancel</Link>
             <button type="submit">Post</button>
           </div>
         </form>
