@@ -1,21 +1,23 @@
 import React from "react";
+import "./Feed.css";
 
 const PostContent = ({ content }) => {
   return (
-    <>
+    <div className="postContent-container">
       {content.map((item, idx) => (
         <div key={idx}>
           {item.image && (
-            <img
-              src={`http://localhost:5000/uploads/postImages/${item.image}`}
-              alt="Post Img"
-              style={{ maxWidth: "25%", height: "auto" }}
-            />
+            <div className="postContent-Image">
+              <img
+                src={`http://localhost:5000/uploads/postImages/${item.image}`}
+                alt="Post Img"
+              />
+            </div>
           )}
           {item.caption && <p>{item.caption}</p>}
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

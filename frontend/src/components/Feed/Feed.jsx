@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchPost, currentUserProfile } from "../../services/Api.jsx";
 import PostCard from "./PostCard.jsx";
+import "./Feed.css"
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -26,11 +27,11 @@ const Feed = () => {
   console.log(posts);
 
   return (
-    <>
+    <div className="feed-container">
       {posts.map((post) => (
         <PostCard key={post._id} post={post} currentUser={currentUser} />
       ))}
-    </>
+    </div>
   );
 };
 

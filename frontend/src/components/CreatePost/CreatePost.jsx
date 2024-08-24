@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPost } from "../../services/Api";
+import "./CreatePost.css";
 
 const CreatePost = () => {
   const [imageFile, setImageFile] = useState(null);
@@ -44,21 +45,26 @@ const CreatePost = () => {
 
   return (
     <>
-      <div>
-        <form method="post" onSubmit={handleOnSubmit}>
+      <div className="createPost-container">
+        <form
+          method="post"
+          onSubmit={handleOnSubmit}
+          className="createPost-form"
+        >
           <div>
             <input type="file" name="image" onChange={handleOnChange} />
           </div>
           <div>
             <textarea
               placeholder="What's on your mind"
-              rows={10}
-              cols={60}
+              rows={5}
               name="caption"
               ref={captionRef}
             ></textarea>
           </div>
-          <button type="submit">Post</button>
+          <div className="createPost-button-container">
+            <button type="submit">Post</button>
+          </div>
         </form>
       </div>
     </>

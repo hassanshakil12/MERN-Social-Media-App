@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { likePost, unlikePost } from "../../services/Api.jsx";
+import "./Feed.css";
 
 const LikeBtn = ({ post, currentUser }) => {
   const [isLiked, setIsLiked] = useState(null);
@@ -41,14 +42,15 @@ const LikeBtn = ({ post, currentUser }) => {
     }
   };
   return (
-    <>
+    <div className="likeBtn-container">
       {isLiked ? (
         <button onClick={() => handleOnClick(post._id)}>Unlike</button>
       ) : (
-        <button onClick={() => handleOnClick(post._id)}>like</button>
+        <button onClick={() => handleOnClick(post._id)}>Like</button>
       )}
+      {console.log(post.likes)}
       <span> Likes: {likes.length}</span>
-    </>
+    </div>
   );
 };
 
