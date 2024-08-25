@@ -1,0 +1,180 @@
+.explore-container {
+    width: 100%;
+    min-height: 92vh;
+    background-color: #191919;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+
+/* User Card Loading Spinner */
+
+
+.explore-spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    background-color: #191919;
+}
+
+.explore-spinner {
+    border: 4px solid #bbbbbb1a;
+    border-left-color: #bebebe;
+    /* Blue color for the spinning part */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* User Card Container */
+
+
+.userCard-container {
+    background: linear-gradient(180deg, rgb(14, 14, 14) 80%, rgb(20, 20, 20) 100%);
+    width: 700px;
+    padding: 15px 30px;
+    border-radius: 15px;
+}
+
+.userCard-container-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* User Card Container Left */
+
+
+.userCard-container-left {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.userCard-container-left .userCard-image {
+    width: 80px;
+    height: 80px;
+    background-color: #bebebe;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.userCard-container-left h3 {
+    font-weight: 400;
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.userCard-container-left h5 {
+    font-weight: 400;
+    font-size: 15px;
+    color: #4e4e4e;
+    cursor: pointer;
+    margin-top: -10px;
+    transition: 0.3s;
+}
+
+.userCard-container-left h5:hover {
+    color: #bebebe;
+}
+
+
+/* User Card Container Right */
+
+
+.userCard-container-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #bebebe;
+    padding: 5px;
+    border-radius: 15px;
+    transition: all ease 0.3s;
+}
+
+.userCard-container-right:hover {
+    background-color: #2D2D2D;
+}
+
+.userCard-container-right .userCard-container-info {
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+
+/* User Card Container Button */
+
+
+.userCard-container-button {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+}
+
+.userCard-container-button .follow-btn {
+    width: 25%;
+    padding: 8px 12px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid rgb(47, 188, 253);
+    color: rgb(47, 188, 253);
+    background-color: transparent;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.userCard-container-button .follow-btn:hover {
+    color: rgb(47, 188, 253);
+    border: 1px solid rgba(47, 188, 253, 0.274);
+    background-color: rgba(47, 188, 253, 0.274);
+}
+
+.userCard-container-button .unfollow-btn {
+    width: 25%;
+    padding: 8px 12px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid rgb(253, 47, 47);
+    color: rgb(253, 47, 47);
+    background-color: transparent;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.userCard-container-button .unfollow-btn:hover {
+    color: rgb(253, 47, 47);
+    border: 1px solid rgba(253, 47, 47, 0.274);
+    background-color: rgba(253, 47, 47, 0.274);
+}

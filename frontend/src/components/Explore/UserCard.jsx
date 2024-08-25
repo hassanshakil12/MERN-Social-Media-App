@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { followUser, unFollowUser } from "../../services/Api.jsx";
 import FollowBtn from "./FollowBtn.jsx";
+import "./Explore.css";
 
 const UserCard = ({ user, currentUser }) => {
   const [followers, setFollowers] = useState(user.followers);
@@ -42,11 +43,32 @@ const UserCard = ({ user, currentUser }) => {
 
   return (
     <>
-      <div>
-        <h3>{user.username}</h3>
-        <h5>{user.email}</h5>
-        <p>Followers {followers.length}</p>
-        <p>Following {user.following.length}</p>
+      <div className="userCard-container">
+        {/*  */}
+        <div className="userCard-container-top">
+          {/*  */}
+          <div className="userCard-container-left">
+            <div className="userCard-image"></div>
+            <h3>{user.username}</h3>
+            <h5>{user.email}</h5>
+          </div>
+          {/*  */}
+          <div className="userCard-container-right">
+            <div className="userCard-container-info">
+              <p>Posts</p>
+              <p>{user.following.length}</p>
+            </div>
+            <div className="userCard-container-info">
+              <p>Followers</p>
+              <p>{followers.length}</p>
+            </div>
+            <div className="userCard-container-info">
+              <p>Following</p>
+              <p>{user.following.length}</p>
+            </div>
+          </div>
+        </div>
+
         <FollowBtn
           handleOnClick={handleOnClick}
           isFollowing={isFollowing}
