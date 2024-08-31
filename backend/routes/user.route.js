@@ -2,6 +2,7 @@ import express from "express";
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { upload } from "../middlewares/multer.config.js";
 import authenticateToken from "../middlewares/auth.js";
 
 const router = express.Router();
@@ -75,6 +76,40 @@ router.get("/profile", authenticateToken, async (req, res) => {
     res.status(500).json({ Message: "Server not responding" });
   }
 });
+
+router.post(
+  "/profile/image",
+  authenticateToken,
+  upload.fields([{ name: "profileImage" }, { name: "coverImage" }]),
+  async (req, res) => {
+    try {
+      const profileImageFile = req.files.profileImage;
+      const coverImageFile = req.files.coverImage;
+
+      const userId = req.user._id;
+      const user = await User.findById(userId);
+
+      if (!user) return res.status(404).json({ message: "User not found!!!" });
+
+      if (profileImageFile) {
+        const profileImage = profileImageFile[0].filename;
+        user.profileImage = profileImage;
+      }
+
+      if (coverImageFile) {
+        const coverImage = coverImageFile[0].filename;
+        user.coverImage = coverImage;
+      }
+
+      await user.save();
+
+      res.status(201).json({ message: "Image uploaded succesfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Server not responding" });
+    }
+  }
+);
 
 router.post("/follow/:id", authenticateToken, async (req, res) => {
   try {

@@ -17,6 +17,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    profileImage: {
+      type: String,
+      default: "profile.jpg",
+    },
+    coverImage: {
+      type: String,
+      default: "cover.jpg",
+    },
     followers: [
       {
         type: Schema.Types.ObjectId,

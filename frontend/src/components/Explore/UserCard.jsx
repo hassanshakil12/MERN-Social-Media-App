@@ -48,7 +48,12 @@ const UserCard = ({ user, currentUser }) => {
         <div className="userCard-container-top">
           {/*  */}
           <div className="userCard-container-left">
-            <div className="userCard-image"></div>
+            <div className="userCard-image">
+              <img
+                src={`http://localhost:5000/uploads/${user.profileImage}`}
+                alt="Profile Picture"
+              />
+            </div>
             <h3>{user.username}</h3>
             <h5>{user.email}</h5>
           </div>

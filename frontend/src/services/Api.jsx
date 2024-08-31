@@ -26,6 +26,10 @@ export const unFollowUser = (userId) =>
 export const currentUserProfile = () =>
   API.get("/user/profile", { headers: getAuthHeader() });
 
+export const uploadProfileImages = (imageData) => {
+  API.post("/user/profile/image", imageData, { headers: getAuthHeader() });
+};
+
 // Post Routes ----------------------------------------------------------------------------
 
 export const fetchPost = () => API.get("/post", { headers: getAuthHeader() });

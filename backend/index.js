@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 dotenv.config();
 
 // Middlewares
-app.use("/uploads/postImages", express.static(UPLOAD_DIR));
+app.use("/uploads", express.static(UPLOAD_DIR));
 app.use(express.json());
 app.use(bodyParser.json());
 

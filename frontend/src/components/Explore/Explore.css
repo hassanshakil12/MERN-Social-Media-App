@@ -80,6 +80,12 @@
     background-color: #bebebe;
     border-radius: 50%;
     cursor: pointer;
+    overflow: hidden;
+}
+
+.userCard-container-left .userCard-image img{
+    width: 100%;
+    object-fit: cover;
 }
 
 .userCard-container-left h3 {

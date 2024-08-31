@@ -9,7 +9,7 @@ const PostContent = ({ content }) => {
           {item.image && (
             <div className="postContent-Image">
               <img
-                src={`http://localhost:5000/uploads/postImages/${item.image}`}
+                src={`http://localhost:5000/uploads/${item.image}`}
                 alt="Post Img"
               />
             </div>

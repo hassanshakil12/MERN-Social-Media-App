@@ -1,0 +1,130 @@
+.profile-container {
+    width: 100%;
+    min-height: 92vh;
+    background-color: #191919;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.profile-spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    background-color: #191919;
+}
+
+.profile-spinner {
+    border: 4px solid #bbbbbb1a;
+    border-left-color: #bebebe;
+    /* Blue color for the spinning part */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* Cover Image CSS */
+
+.profile-container .profile-coverImage-container {
+    width: 700px;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.profile-container .profile-coverImage-container img {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.profile-container .profile-coverImage-container img:hover {
+    filter: brightness(65%);
+    scale: 1.05;
+}
+
+
+
+
+/* Profile Image CSS */
+
+.profile-container .profile-profileImage-container {
+    border-radius: 50%;
+    width: 230px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 10px solid #191919;
+    margin-top: -125px;z-index: 99;
+}
+
+.profile-container .profile-profileImage-container img {
+    object-fit: cover;
+    width: 100%;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.profile-container .profile-profileImage-container img:hover {
+    filter: brightness(65%);
+    scale: 1.1;
+}
+
+
+
+/* Profile Info CSS */
+
+.profile-container .profile-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 700px;
+
+}
+
+.profile-info-container h1 {
+    font-weight: 500;
+}
+
+.profile-info-container h2 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #404040;
+    transition: all ease 0.3s;
+}
+
+.profile-info-container h2:hover {
+    color: #bebebe;
+}
+
+.profile-info-container .info-follow-container {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 40px;
+}
