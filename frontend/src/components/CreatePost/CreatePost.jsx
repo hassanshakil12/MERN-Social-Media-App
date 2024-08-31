@@ -79,7 +79,7 @@ const CreatePost = () => {
             onDragOver={handleOnDragOver}
           >
             {imagePreview ? (
-              <img src={imagePreview} alt="preview" className="image-preview" />
+              <img src={imagePreview} alt="preview" />
             ) : (
               <div className="dropZone">
                 <p>Drag and drop an image here...</p>
@@ -93,7 +93,6 @@ const CreatePost = () => {
             )}
           </div>
           <h3 className="createPost-fileName">
-            {" "}
             File Name: {imageName || "No File Selected"}
           </h3>
           <div>
