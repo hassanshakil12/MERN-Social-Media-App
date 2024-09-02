@@ -9,10 +9,10 @@ const Dialog = ({ isOpen, onClose, dialogType }) => {
   const [imageName, setImageName] = useState("");
   const navigate = useNavigate();
 
-  const handleOnChange = () => {
+  const handleOnChange = (e) => {
     try {
       if (e.target.type === "file") {
-        const file = e.targrt.files[0];
+        const file = e.target.files[0];
         setImageFile(file);
         setImagePreview(URL.createObjectURL(file));
         setImageName(file.name);
@@ -39,9 +39,9 @@ const Dialog = ({ isOpen, onClose, dialogType }) => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-
     if (!imageFile) return;
+
+    const formData = new FormData();
 
     if (dialogType == "profileImage" && imageFile) {
       formData.append("profileImage", imageFile);
@@ -53,6 +53,10 @@ const Dialog = ({ isOpen, onClose, dialogType }) => {
 
     try {
       await uploadProfileImages(formData);
+      setImageFile(null);
+      setImagePreview(null);
+      setImageName("");
+      onClose();
       console.log(formData);
 
       console.log("Image uploaded successfully");
@@ -110,9 +114,7 @@ const Dialog = ({ isOpen, onClose, dialogType }) => {
             <Link to={"/profile"} onClick={onClose}>
               Cancel
             </Link>
-            <button type="submit" onClick={onClose}>
-              Upload
-            </button>
+            <button type="submit">Upload</button>
           </div>
         </form>
       </div>
