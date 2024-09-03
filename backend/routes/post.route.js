@@ -8,8 +8,8 @@ const router = express.Router();
 router.get("/", authenticateToken, async (req, res) => {
   try {
     const posts = await Post.find()
-      .populate("user", ["username", "email"])
-      .populate("comment.user", ["username"])
+      .populate("user", ["username", "email", , "profileImage"])
+      .populate("comment.user", ["username", "profileImage"])
       .populate("likes", ["username"]);
 
     if (!posts) {

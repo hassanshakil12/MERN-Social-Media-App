@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { createComment } from "../../services/Api.jsx";
+import { Link } from "react-router-dom";
 import LikeBtn from "./LikeBtn.jsx";
 import PostContent from "./PostContent.jsx";
 import "./Feed.css";
@@ -28,7 +29,17 @@ const PostCard = ({ post, currentUser }) => {
 
   return (
     <div className="postCard-container">
-      <h3>{post.user.username}</h3>
+      <div className="postCard-info-container">
+        <Link to={"/profile"} className="postCard-info-image">
+          <img
+            src={`http://localhost:5000/uploads/${post.user.profileImage}`}
+            alt="Profile Image"
+          />
+        </Link>
+        <h3>
+          <Link to={"/profile"}>{post.user.username}</Link>
+        </h3>
+      </div>
 
       {/* Rendering post content */}
       <PostContent content={post.content} />
@@ -44,8 +55,15 @@ const PostCard = ({ post, currentUser }) => {
         {comments.length > 0 ? (
           comments.map((comment, idx) => (
             <div key={idx} className="post-comment">
+              <div className="post-comment-image">
+                <img
+                  src={`http://localhost:5000/uploads/${comment.user?.profileImage}`}
+                  alt="Profile Image"
+                />
+              </div>
               <h5>
-                {comment.user?.username || "User"}: <span>{comment.content}</span>
+                {comment.user?.username || "User"}:{" "}
+                <span>{comment.content}</span>
               </h5>
             </div>
           ))

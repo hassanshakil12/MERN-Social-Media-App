@@ -25,6 +25,12 @@ const userSchema = new Schema(
       type: String,
       default: "cover.jpg",
     },
+    post: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "post",
+      },
+    ],
     followers: [
       {
         type: Schema.Types.ObjectId,
