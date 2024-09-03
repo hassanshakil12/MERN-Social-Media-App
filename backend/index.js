@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: `http://localhost:5173`,
-    methods: "GET, POS, PUT, DELETE",
+    methods: "GET, POST, PUT, DELETE",
     credentials: true,
   })
 );
