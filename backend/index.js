@@ -30,6 +30,10 @@ app.use(
 app.use("/api/user", userRouter);
 app.use("/api/post", postRouter);
 
+app.get("/", (req, res)=>{
+  res.send("Server is Listening")
+})
+
 app.get("*", (req, res) => {
   res.status(404).json({ Message: "Page not found" });
 });
